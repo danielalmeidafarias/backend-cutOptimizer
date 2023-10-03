@@ -72,6 +72,19 @@ async function main() {
         res.status(200).send(listas)
     })
 
+    app.get('/listas/:userId/:id', async (req, res) => {
+        const { userId, id } = req.params
+
+        const lista = await prisma.listaCorte.findUnique({
+            where: {
+                userId: Number(userId),
+                id: Number(id)
+            }
+        })
+
+        res.status(200).send(lista)
+
+    })
 
     app.post('/listas/:userId', async (req, res) => {
         const { userId } = req.params
