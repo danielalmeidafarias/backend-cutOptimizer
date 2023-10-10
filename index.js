@@ -6,6 +6,8 @@ const cors = require('cors')
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 
+const { canvasDraw } = require('./canvasDraw')
+
 app.use(express.json())
 app.use(cors())
 
@@ -100,7 +102,6 @@ async function main() {
         })
     })
 
-
     app.post('/listas/delete/:userId', async(req, res) => {
         const { userId } = req.params
         const { id } = req.body
@@ -114,6 +115,15 @@ async function main() {
 
     })
 
+    app.post('/mobile', async (req, res) => {
+
+        const { listaDesenho, size } = req.body
+
+        const img = canvasDraw(listaDesenho, size)
+
+        res.status(200).send(img)
+
+    })
     
 }
 
