@@ -140,8 +140,8 @@ main()
 
 
 try {
-    app.listen(port, () => {
-        console.log(`Servidor rodando em http://localhost:${port}`)
+    app.listen(Number(process.env.PORT) || port, () => {
+        console.log(`Servidor rodando`)
     })
 } catch(err) {
     console.error(err)
