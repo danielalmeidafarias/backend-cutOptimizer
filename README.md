@@ -1,6 +1,6 @@
 # backend-cutOptimizer
 Backend da aplicação "cutOptimizer" para lidar com login, armazenamento de listas de corte e renderização do mobile.
-Feita com Express.js e Prisma com postglesql
+Feita com Express.js, Prisma com postglesql e a biblioteca canvas para node.js
 
 
 ## deploy da api
